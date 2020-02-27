@@ -11,3 +11,5 @@ The First scene would be the take off scene from the station which would then tr
 ![](https://github.com/PapaJepo/Game-Engines-2/blob/master/Images/StoryBoard4.PNG)
 ![](https://github.com/PapaJepo/Game-Engines-2/blob/master/Images/StoryBoard5.PNG)
 ![](https://github.com/PapaJepo/Game-Engines-2/blob/master/Images/StoryBoard6.PNG)
+
+I'm looking forward to working on this assignment as Halo Reach is one of my fabourite games.
