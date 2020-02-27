@@ -17,4 +17,6 @@ The First scene would be the take off scene from the station which would then tr
 **Docking Scene**
 ![](https://github.com/PapaJepo/Game-Engines-2/blob/master/Images/StoryBoard6.PNG)
 
-I'm looking forward to working on this assignment as Halo Reach is one of my fabourite games.
+For the models in game I'll more than likely be making my own in Blender which will be done in the coming weeks.
+
+I'm looking forward to working on this assignment as Halo Reach is one of my favourite games.
