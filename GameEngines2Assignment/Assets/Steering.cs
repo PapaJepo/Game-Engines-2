@@ -11,15 +11,18 @@ public class Steering : MonoBehaviour
     public float MaxForce = 20;
 
     public Vector3 velocity;
+    public Vector3 force;
 
     public List<Transform> target;
     private int CurrentWaypoint;
 
     public bool ship;
+    public bool dock;
 
     Vector3 EnemyTarget;
     Vector3 offset;
     Vector3 WorldTarget;
+    public Vector3 acceleration;
 
     public Transform otherOffsetPos;
 
@@ -33,11 +36,28 @@ public class Steering : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if(dock == true)
+        {
+            velocity = velocity * 0;
+            this.transform.rotation = this.transform.rotation;
+        }
+        /*Vector3 newAcceleration = force / Mass;
+        acceleration = Vector3.Lerp(acceleration, newAcceleration, Time.deltaTime);
+        velocity += acceleration * Time.deltaTime;
 
+        velocity = Vector3.ClampMagnitude(velocity, MaxVelocity);
+
+        if(velocity.magnitude > float.Epsilon)
+        {
+            transform.LookAt(transform.position + velocity, transform.up);
+
+            transform.position += velocity * Time.deltaTime;
+
+        }*/
        
-        if(ship == true)
+        if(ship == true && dock == false)
         {
             OffsetPursue();
         }
@@ -75,30 +95,68 @@ public class Steering : MonoBehaviour
         transform.forward = velocity.normalized;
     }
 
+
     void OffsetPursue()
     {
-        offset = otherOffsetPos.position - Banshee.transform.position;
+        var desiredVelocity = Banshee.GetComponent<Steering>().otherOffsetPos.position - transform.position;
+        desiredVelocity = desiredVelocity.normalized * MaxVelocity;
+
+        var steering = desiredVelocity - velocity;
+        steering = Vector3.ClampMagnitude(steering, MaxForce);
+        steering /= Mass;
+
+        velocity = Vector3.ClampMagnitude(velocity + steering, MaxVelocity);
+        transform.position += velocity * Time.deltaTime;
+        transform.forward = velocity.normalized;
+
+
+
+    }
+        /*Debug.Log("ewbfywbashjfbwq");
+        offset = Banshee.GetComponent<Steering>().otherOffsetPos.position - Banshee.transform.position;
+        //offset = Quaternion.Inverse(Banshee.transform.rotation) * offset;
 
         WorldTarget = Banshee.transform.TransformPoint(offset);
         float dist = Vector3.Distance(WorldTarget, transform.position);
         float time = dist / MaxVelocity;
         EnemyTarget = WorldTarget + (Banshee.GetComponent<Steering>().velocity * time);
 
-    }
+        force = Arrive(EnemyTarget); 
+        
+        var desiredVelocity = Banshee.GetComponent<Steering>().otherOffsetPos.position - transform.position;
+        desiredVelocity = desiredVelocity.normalized * MaxVelocity;
 
-    public Vector3 Arrive(Vector3 targetPos, float slowDown = 10f)
+        var steering = desiredVelocity - velocity;
+        steering = Vector3.ClampMagnitude(steering, MaxForce);
+        steering /= Mass;
+
+        velocity = Vector3.ClampMagnitude(velocity + steering, MaxVelocity);
+        transform.position += velocity * Time.deltaTime;
+        transform.forward = velocity.normalized;
+
+    }*/
+
+    public Vector3 Arrive()
     {
-        Vector3 targetDir = targetPos - transform.position;
+        Vector3 targetDir = Banshee.GetComponent<Steering>().otherOffsetPos.position - transform.position;
 
         float distance = targetDir.magnitude;
         if(distance < 0.1f)
         {
             return Vector3.zero;
         }
-        float ramped = MaxVelocity * (distance / slowDown);
+        float ramped = MaxVelocity * (distance / 10f);
 
         float clamped = Mathf.Min(ramped, MaxVelocity);
         Vector3 desiredVelocity = clamped * (targetDir / distance);
         return desiredVelocity - velocity;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(this.transform.position, this.transform.position + velocity);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(this.transform.position, this.transform.position + force);
     }
 }
