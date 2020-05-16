@@ -23,13 +23,13 @@ public class Steering : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateWyapoints();
+        UpdateWaypoints();
         Seek();
 
     }
 
 
-    void UpdateWyapoints()
+    void UpdateWaypoints()
     {
         if (Vector3.Distance(target[CurrentWaypoint].position, this.transform.position) < 5)
         {
@@ -50,5 +50,10 @@ public class Steering : MonoBehaviour
         velocity = Vector3.ClampMagnitude(velocity + steering, MaxVelocity);
         transform.position += velocity * Time.deltaTime;
         transform.forward = velocity.normalized;
+    }
+
+    void OffsetPursue()
+    {
+
     }
 }
