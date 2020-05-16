@@ -14,7 +14,7 @@ public class Steering : MonoBehaviour
     public Vector3 force;
 
     public List<Transform> target;
-    private int CurrentWaypoint;
+    public int CurrentWaypoint;
 
     public bool ship;
     public bool dock;
