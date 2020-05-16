@@ -73,7 +73,7 @@ public class Steering : MonoBehaviour
 
     void UpdateWaypoints()
     {
-        if (Vector3.Distance(target[CurrentWaypoint].position, this.transform.position) < 5)
+        if (Vector3.Distance(target[CurrentWaypoint].position, this.transform.position) < 10)
         {
             CurrentWaypoint = (CurrentWaypoint + 1) % target.Count;
           
