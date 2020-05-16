@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TakeoffManager : MonoBehaviour
 {
     public Steering ShipRef;
     public List<GameObject> cameras;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,14 @@ public class TakeoffManager : MonoBehaviour
                 cameras[2].SetActive(false);
                 cameras[3].SetActive(true);
                 break;
+            case 4:
+                cameras[3].SetActive(false);
+                cameras[4].SetActive(true);
+                break;
+            case 5:
+                SceneManager.LoadScene(1);
+                break;
+
 
         }
     }
