@@ -20,3 +20,10 @@ The First scene would be the take off scene from the station which would then tr
 For the models in game I'll more than likely be making my own in Blender which will be done in the coming weeks.
 
 I'm looking forward to working on this assignment as Halo Reach is one of my favourite games.
+
+Cruiser Model:
+https://sketchfab.com/3d-models/cas-class-assault-carrier-76c3a276eee64ae2bd83a8ead67880db
+
+Audio Used:
+https://www.youtube.com/watch?v=McuBigYmOWU
+https://www.youtube.com/watch?v=qLz7VxdZzGY
