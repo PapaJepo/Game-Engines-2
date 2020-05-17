@@ -17,9 +17,10 @@ The First scene would be the take off scene from the station which would then tr
 **Docking Scene**
 ![](https://github.com/PapaJepo/Game-Engines-2/blob/master/Images/StoryBoard6.PNG)
 
-For the models in game I'll more than likely be making my own in Blender which will be done in the coming weeks.
 
 I'm looking forward to working on this assignment as Halo Reach is one of my favourite games.
+
+The main ship model was made by me.
 
 Cruiser Model:
 https://sketchfab.com/3d-models/cas-class-assault-carrier-76c3a276eee64ae2bd83a8ead67880db
