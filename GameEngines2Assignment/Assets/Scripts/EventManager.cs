@@ -27,5 +27,11 @@ public class EventManager : MonoBehaviour
             Cameras[1].SetActive(false);
             Cameras[2].SetActive(true);
         }
+        else if (time < 90f && time > 70f)
+        {
+            Cameras[2].SetActive(false);
+            Cameras[3].SetActive(true);
+        }
+
     }
 }
