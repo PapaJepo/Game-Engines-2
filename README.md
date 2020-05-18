@@ -1,6 +1,9 @@
 # Game Engines 2
 For my Game Engines project I want to recreate this scene from Halo Reach.
 
+**Video of Project**
+https://www.youtube.com/watch?v=QWsBdPohPRU
+
 **Reference Video**
 https://youtu.be/qLz7VxdZzGY?t=446
 
